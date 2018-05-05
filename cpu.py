@@ -13,8 +13,8 @@ kernel = np.array([
 class GameOfLifeCPU(GameOfLifeBase):
 
     def update(self):
-        conv = signal.convolve2d(self.state.astype(int), kernel, mode='same')
-        self.state = self.state & (conv == 2) | (conv == 3)
+        count = signal.convolve2d(self.state.astype(int), kernel, mode='same')
+        self.state = self.state & (count == 2) | (count == 3)
 
 
 if __name__ == '__main__':
